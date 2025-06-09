@@ -1,0 +1,34 @@
+:root {
+  --white: #ffffff;
+}
+
+body {
+  background: linear-gradient(rgba(21, 84, 51, .745), rgba(21, 84, 51, .745)), url("../../../public/background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 500vh;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  color: white;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  color: white;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+

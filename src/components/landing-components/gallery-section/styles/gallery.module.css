@@ -1,0 +1,91 @@
+
+.wrapperContainer {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    z-index: -1;
+}
+
+.wrapperContainer {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer y Edge */
+}
+
+.wrapperContainer::-webkit-scrollbar {
+    display: none; /* Safari y Chrome */
+}
+
+.gallerySection {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    scroll-snap-align: start; 
+}
+
+.containerGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1rem;
+    scroll-snap-align: start; 
+}
+
+@media (max-width: 800px) {
+    .containerGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.containerGrid2 {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1rem;
+}
+
+.containerGrid2 .imageContainer:first-child {
+    grid-column: span 3;
+}
+
+.containerGrid2 .imageContainer:last-child {
+    grid-column: span 7;
+}
+
+@media (max-width: 800px) {
+    .containerGrid2 {
+        grid-template-columns: 1fr;
+    }
+    .containerGrid2 .imageContainer:first-child {
+        grid-column: span 7;
+    }
+    
+    .containerGrid2 .imageContainer:last-child {
+        grid-column: span 7;
+    }
+}
+
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2rem;
+    width: 100%;
+    height: 40vh;
+    background-color: white;
+    transition: all ease .5s;
+}
+
+
+.progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: #ff4500;
+    width: 100%;
+    transform-origin: 0%;
+}

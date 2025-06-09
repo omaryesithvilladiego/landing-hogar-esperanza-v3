@@ -1,0 +1,112 @@
+.footerWrapper {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  min-width: 60%;
+  background-color: #164d34;
+  height: 40rem;
+}
+
+.contentContainer {
+  width: 20%;
+  padding: 0rem;
+}
+
+.footer {
+  background-color: #164d34;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: white;
+}
+
+.stackContainer {
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: baseline;
+  flex-direction: column;
+  width: 30rem;
+  display: flex;
+}
+
+.footerLogo {
+  max-width: 100%;
+  height: auto;
+
+}
+
+.socialMediaContainer {
+  width: 100%;
+  flex-direction: row;
+  gap: 2rem;
+  display: flex;
+}
+
+.socialButton {
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  width: fit-content;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.socialButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.divider {
+  width: 20rem;
+  background-color: white;
+  margin: 1rem 0;
+  height: 1px;
+  border: none;
+}
+
+.privacyContainer {
+  gap: 1rem;
+  align-items: baseline;
+  display: flex;
+}
+
+.privacyLink {
+  color: white;
+  text-decoration: none;
+}
+
+.privacyLink:hover {
+  text-decoration: underline;
+}
+
+.mapFrame {
+  border: 5px solid white inset;
+  box-shadow: 2px solid gray;
+  border-radius: 25px;
+}
+
+.mapFrameDesktop {
+  transform: translateY(-80px);
+}
+
+.mapFrameMobile {
+  transform: translateY(-120px) translateX(-20px);
+}
+
+@media (max-width: 1130px) {
+  .contentContainer {
+    width: 5%;
+    padding: 1rem;
+  }
+
+  .stackContainer {
+    margin-top: 6rem;
+  }
+
+  .socialButton span {
+    display: none;
+  }
+}

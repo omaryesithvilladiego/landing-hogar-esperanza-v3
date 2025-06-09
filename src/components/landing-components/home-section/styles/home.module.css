@@ -1,0 +1,105 @@
+.homeSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    gap: 1rem;
+    width: 60%;
+    margin: 0 auto;
+    z-index: 1000;
+
+}
+.homeSectionTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    margin: 0 auto;
+    gap: .5rem;
+}
+.homeSection h1, .homeSection h2, .homeSection p {
+    color: var(--white);
+    text-align: center;
+}
+.homeSection button {
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+    padding: .5rem 1.5rem;
+    color: white;
+    border-radius: 10px;
+    background-color: transparent;
+    width: 80%;
+    margin: 0 auto;
+}
+.videoContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+@media (min-width: 900px) {
+    .homeSection {
+        width: 60%;
+    }
+    .homeSection button {
+        width: 50%;
+    }
+    .homeSection h1 {
+        font-size: 60px;
+       
+    }
+    .homeSection h2 {
+        font-size: 20px; 
+        width: 40%;
+       
+    }
+    .homeSection p {
+        font-size: 20px; 
+        width: 80%;
+    }
+}
+
+@media (max-width: 900px) {
+    .homeSection h1 {
+        font-size: 55px;
+    }
+    .homeSection h2 {
+        font-size: 15px; 
+       
+    }
+    .homeSection p {
+        font-size: 15px; 
+    }
+}
+.animationletter {
+    animation: moveUp 3s ease-out reverse;
+    
+}
+
+@keyframes moveUp {
+
+     
+    0% {
+        transform: translateY(-2000rem);
+        opacity: 1;
+    }
+  
+    
+    50% {
+        opacity: 0.5;
+    }
+   
+
+    100% {
+        transform: translateY(0);
+        
+    }
+}

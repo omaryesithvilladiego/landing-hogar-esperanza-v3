@@ -1,0 +1,27 @@
+.contentHeaderSection {
+    display: flex;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    
+}
+.containerHeader {
+    width: 95%;
+    margin: 0 auto;
+    height: 4rem;
+}
+.contentHeaderSection .containerName {
+    display: flex;
+    gap: .5rem;
+    font-size: 1.5rem;
+}
+
+.contentHeaderSection a  {
+   
+    text-decoration: none;
+    color: white;
+}

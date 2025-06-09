@@ -1,0 +1,17 @@
+.navBar {
+    position: sticky;
+    top: 0;
+    height: 4.5rem;
+    display: flex;
+    backdrop-filter: blur(7px);
+    transition: all ease .5s;
+    z-index: 1000;
+}
+.navBar ul {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    color: var(--white);
+    justify-content: space-between;
+}

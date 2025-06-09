@@ -1,0 +1,49 @@
+.container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: transparent;
+    color: white;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 6rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .section {
+    padding: 1rem;
+    border-radius: 8px;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2.5rem; /* Changed from 5vw to fixed size for better readability */
+  }
+  
+  @media (max-width: 1130px) {
+    .title {
+      font-size: 2rem; /* Adjusted for mobile screens */
+    }
+  }
+  
+  .paragraph {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.125rem; /* Added 18px equivalent for readable paragraph text */
+  }

@@ -1,0 +1,59 @@
+.wraperContainer {
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(213, 225, 221, 0.85);
+  
+}
+
+.tittle {
+    color: #164d34;
+    display: flex;
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 5dvw;
+}
+
+@media (min-width: 768px) {
+    .tittle {
+      font-size: 4vw;
+    }
+}
+
+/* .swiper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.swiperSlide {
+    display: flex;
+    background-color: azure;
+    width: 90%;
+    height: 70vh;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.containerImage {
+    position: relative;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+ */
