@@ -91,6 +91,18 @@ const Footer = () => {
       </div>
 
       {/* mapa */}
+      <div>
+        <iframe
+          className={styles.mapFrame}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.417216466431!2d-75.88079712517057!3d8.746756291303733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x44b0757867fd66d3%3A0x996f2354c7159b2b!2sFundaci%C3%B3n%20Hogar%20Esperanza!5e0!3m2!1ses!2sco!4v1749504486579!5m2!1ses!2sco"
+          width="400"
+          height="300"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          sandbox="allow-scripts allow-same-origin"
+          title="Location of Fundación Hogar Esperanza"
+        />
+      </div>
     </div>
   );
 };
