@@ -50,5 +50,34 @@ NavBar.ButtonLogo = function ButtonLogo() {
     </li>
   );
 };
+NavBar.ButtonAbout = function ButtonAbout() {
+  const context = useNavBarConext();
+  const { ButtonAbout } = context.options;
+  return (
+    <li>
+      <a href="#about">{ButtonAbout}</a>
+    </li>
+  );
+};
+
+NavBar.ButtonServices = function ButtonServices() {
+  const context = useNavBarConext();
+  const { ButtonServices } = context.options;
+  return (
+    <li>
+      <a>{ButtonServices}</a>
+    </li>
+  );
+};
+
+NavBar.ButtonContact = function ButtonContact() {
+  const context = useNavBarConext();
+  const { ButtonContact } = context.options;
+  return (
+    <li>
+      <a>{ButtonContact}</a>
+    </li>
+  );
+};
 
 export default NavBar;

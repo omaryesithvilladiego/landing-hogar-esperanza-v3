@@ -1,0 +1,154 @@
+.contactForm {
+
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+    width:50%;
+}
+
+.contactSection {
+    color: white;
+    display: flex;
+    width: 80%;
+    height: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    gap: 1rem;
+
+}
+
+
+
+.textSection {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+    
+}
+
+.textSection h2 {
+    margin: 0;
+    font-size: 4rem;
+    position: relative;
+    
+}
+.textSection p {
+    width: 50%;
+}
+.wraperSectionText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+}
+.contactForm button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    text-transform: none;
+    box-shadow: none;
+}
+
+.contactForm button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+.contactForm input {
+    padding: .5rem;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    border-radius: 4px;
+    height: 2rem;
+}
+
+.contactForm input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    outline: none;
+    padding: 8px 0;
+    box-shadow: none;
+ }
+
+ .contactForm select {
+    background: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 8px 0;
+    width: 100%;
+    outline: none;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.contactForm select option {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    font-size: 1.2rem;
+}
+
+.contactForm textarea {
+    background: transparent;
+    color: white;
+    border: 1.5px solid white;
+    border-bottom: 2px solid white;
+    padding: 8px 0;
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+}
+
+.contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contactForm textarea:focus {
+    border-bottom-color: #ffffff;
+}
+
+
+.contactForm input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    
+    font-size: 1.2rem;
+}
+
+@media (max-width: 990px) {
+    .contactSection {
+        flex-direction: column;
+    }
+    .textSection {
+        width: 100%;
+    }
+    .textSection h2 {
+        font-size: 2rem;
+    }
+    .textSection p {
+        width: 100%;
+    }
+
+    .contactForm {
+        width: 100%;
+    }
+}
+
+
+

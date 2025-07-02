@@ -7,6 +7,7 @@ import Plans from "@/components/landing-components/plans-section";
 import Instalaciones from "@/components/landing-components/instalations-section";
 import AboutUs from "@/components/landing-components/about-us-section";
 import Footer from "@/components/landing-components/footer-section";
+import { ContactForm } from "@/components/landing-components/contac-section";
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
         }}
       >
         <NavBar.ButtonLogo />
+        <NavBar.ButtonAbout />
+        <NavBar.ButtonServices />
+        <NavBar.ButtonContact />
         <NavBar.ButtonOpenMenu />
       </NavBar>
       <HomeSection />
@@ -27,6 +31,7 @@ export default function Home() {
       <Plans />
       <Instalaciones />
       <AboutUs />
+      <ContactForm />
       <Footer />
     </div>
   );

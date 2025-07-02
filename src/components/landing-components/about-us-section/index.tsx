@@ -69,7 +69,7 @@ function AboutUs() {
   };
 
   return (
-    <div className={styles.container}>
+    <div id="about" className={styles.container}>
       <div className={styles.grid}>
         <motion.div
           id="mision"

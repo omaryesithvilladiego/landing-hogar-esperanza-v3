@@ -15,3 +15,15 @@
     color: var(--white);
     justify-content: space-between;
 }
+
+.navBar ul li {
+    list-style: none;
+    cursor: pointer;
+}
+
+
+
+.contactForm input:hover,
+.contactForm input:focus {
+   border-bottom-color: #90caf9;
+}
