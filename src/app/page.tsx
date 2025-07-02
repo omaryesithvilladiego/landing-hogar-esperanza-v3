@@ -8,8 +8,12 @@ import Instalaciones from "@/components/landing-components/instalations-section"
 import AboutUs from "@/components/landing-components/about-us-section";
 import Footer from "@/components/landing-components/footer-section";
 import { ContactForm } from "@/components/landing-components/contac-section";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Home() {
+  // Using useMediaQuery hook directly without state management
+  const isDesktop = useMediaQuery("(min-width: 630px)");
+
   return (
     <div className={styles.page}>
       <NavBar
@@ -21,10 +25,12 @@ export default function Home() {
         }}
       >
         <NavBar.ButtonLogo />
-        <NavBar.ButtonAbout />
-        <NavBar.ButtonServices />
-        <NavBar.ButtonContact />
-        <NavBar.ButtonOpenMenu />
+
+        {isDesktop && <NavBar.ButtonAbout />}
+        {isDesktop && <NavBar.ButtonServices />}
+        {isDesktop && <NavBar.ButtonContact />}
+
+        {!isDesktop && <NavBar.ButtonOpenMenu />}
       </NavBar>
       <HomeSection />
       <GallerySection />

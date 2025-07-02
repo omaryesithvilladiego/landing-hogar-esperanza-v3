@@ -5,7 +5,6 @@
     display: flex;
     backdrop-filter: blur(7px);
     transition: all ease .5s;
-    z-index: 1000;
 }
 .navBar ul {
     display: flex;
@@ -14,6 +13,11 @@
     align-items: center;
     color: var(--white);
     justify-content: space-between;
+}
+.navBar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.2rem;
 }
 
 .navBar ul li {
