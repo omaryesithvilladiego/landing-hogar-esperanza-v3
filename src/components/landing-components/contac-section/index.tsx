@@ -80,7 +80,6 @@ export const ContactForm = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),
         });
-        
 
         const result = await response.json();
 
@@ -112,7 +111,7 @@ export const ContactForm = () => {
   });
 
   return (
-    <div className={styles.contactSection} id="contacto">
+    <div className={styles.contactSection} id="contact">
       <section className={styles.textSection}>
         <div className={styles.wraperSectionText}>
           <h2 className={borel.className}>contáctanos</h2>
