@@ -5,13 +5,14 @@ import { NavBarContext, useNavBarConext } from "./context";
 import Image from "next/image";
 import { roboto } from "@/app/fonts";
 import { CiMenuFries } from "react-icons/ci";
+import Link from "next/link";
 
 const NavBar = ({ children, options }: INavBarProps) => {
   return (
     <NavBarContext.Provider value={{ options }}>
-      <nav className={styles.navBar}>
+      <section suppressHydrationWarning className={styles.navBar}>
         <ul className={`${styles.navList} ${roboto.className}`}>{children}</ul>
-      </nav>
+      </section>
     </NavBarContext.Provider>
   );
 };
@@ -21,25 +22,23 @@ NavBar.ButtonHome = function ButtonHome() {
   const { ButtonHome } = context.options;
   return (
     <li>
-      <a>{ButtonHome}</a>
+      <Link href={""}>{ButtonHome}</Link>
     </li>
   );
 };
 
 NavBar.ButtonOpenMenu = function ButtomOpenMenu() {
   return (
-    <div>
+    <li>
       <CiMenuFries fontSize={"3rem"} style={{ cursor: "pointer" }} />
-    </div>
+    </li>
   );
 };
 
 NavBar.ButtonLogo = function ButtonLogo() {
   return (
     <li>
-      <a>
-        <Image src={"/logo.webp"} alt="Logo" width={35} height={30} priority />
-      </a>
+      <Image src={"/logo.webp"} alt="Logo" width={35} height={30} priority />
     </li>
   );
 };
@@ -47,9 +46,11 @@ NavBar.ButtonLogo = function ButtonLogo() {
 NavBar.ButtonAbout = function ButtonAbout() {
   const context = useNavBarConext();
   const { ButtonAbout } = context.options;
+  if (!ButtonAbout) return null;
   return (
-    <li>
-      <a href="#about">{ButtonAbout}</a>
+    <li suppressHydrationWarning>
+      {" "}
+      <a href="#about"> {ButtonAbout}</a>
     </li>
   );
 };
@@ -59,7 +60,7 @@ NavBar.ButtonServices = function ButtonServices() {
   const { ButtonServices } = context.options;
   return (
     <li>
-      <a>{ButtonServices}</a>
+      <Link href="#services">{ButtonServices}</Link>
     </li>
   );
 };
@@ -69,7 +70,7 @@ NavBar.ButtonContact = function ButtonContact() {
   const { ButtonContact } = context.options;
   return (
     <li>
-      <a>{ButtonContact}</a>
+      <a href="#contact">{ButtonContact}</a>
     </li>
   );
 };

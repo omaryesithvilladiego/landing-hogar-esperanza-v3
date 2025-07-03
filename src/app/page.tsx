@@ -1,4 +1,6 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import HomeSection from "@/components/landing-components/home-section";
 import styles from "./page.module.css";
 import NavBar from "@/components/compound/nav-bar";
@@ -11,8 +13,12 @@ import { ContactForm } from "@/components/landing-components/contac-section";
 import { useMediaQuery } from "usehooks-ts";
 
 export default function Home() {
-  // Using useMediaQuery hook directly without state management
+  const [hasMounted, setHasMounted] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 630px)");
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   return (
     <div className={styles.page}>
@@ -25,13 +31,12 @@ export default function Home() {
         }}
       >
         <NavBar.ButtonLogo />
-
-        {isDesktop && <NavBar.ButtonAbout />}
-        {isDesktop && <NavBar.ButtonServices />}
-        {isDesktop && <NavBar.ButtonContact />}
-
-        {!isDesktop && <NavBar.ButtonOpenMenu />}
+        {hasMounted && isDesktop && <NavBar.ButtonAbout />}
+        {hasMounted && isDesktop && <NavBar.ButtonServices />}
+        {hasMounted && isDesktop && <NavBar.ButtonContact />}
+        {hasMounted && !isDesktop && <NavBar.ButtonOpenMenu />}
       </NavBar>
+
       <HomeSection />
       <GallerySection />
       <Plans />

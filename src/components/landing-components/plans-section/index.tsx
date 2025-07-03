@@ -46,7 +46,7 @@ const Plans = () => {
   };
 
   return (
-    <section className={styles.containerWraper}>
+    <section id="services" className={styles.containerWraper}>
       <ReactModal
         isOpen={isOpen}
         onRequestClose={handleCloseModal}
