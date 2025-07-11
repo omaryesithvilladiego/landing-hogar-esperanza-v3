@@ -1,48 +1,56 @@
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+// Create email transporter
+const transporter = nodemailer.createTransport({
+  host: process.env.NEXT_PUBLIC_SMTP_HOST,
+  port: Number(process.env.NEXT_PUBLIC_SMTP_PORT),
+  secure: true,
+  auth: {
+    user: process.env.NEXT_PUBLIC_SMTP_USER,
+    pass: process.env.NEXT_PUBLIC_SMTP_PASSWORD,
+  },
+});
+
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    console.log(data);
+    console.log("Processing contact form submission:", data);
 
     // Validate required fields
-    if (!data.name || !data.email || !data.message) {
-      return new Response(
-        JSON.stringify({
-          error: "Missing required fields",
-        }),
-        {
-          status: 400,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+    if (!data.name || !data.email || !data.selectedPlan) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
       );
     }
 
-    // Here you would typically send email or save to database
-    // For now just return success response
-    return new Response(
-      JSON.stringify({
-        message: "Contact form submitted successfully",
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+    // Send email to admin
+    await transporter.sendMail({
+      from: process.env.NEXT_PUBLIC_SMTP_USER,
+      to: process.env.NEXT_PUBLIC_SMTP_USER,
+      subject: "New Subscription Registration",
+      html: `
+        <h1>New User Registration</h1>
+        <p>User Details:</p>
+        <ul>
+          <li>Name: ${data.name}</li>
+          <li>Email: <a href="mailto:${data.email}">${data.email}</a></li>
+          <li>Selected Plan: ${data.plan}</li>
+          ${data.phone ? `<li>Phone: <a href="tel:${data.phone}">${data.phone}</a></li>` : ""}
+          ${data.message ? `<li>Message: ${data.message}</li>` : ""}
+        </ul>
+      `,
+    });
+
+    return NextResponse.json(
+      { message: "Registration processed successfully" },
+      { status: 200 }
     );
   } catch (error) {
-    console.error("Error processing contact form:", error);
-    return new Response(
-      JSON.stringify({
-        error: "Internal server error",
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+    console.error("Error processing registration:", error);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
     );
   }
 }
