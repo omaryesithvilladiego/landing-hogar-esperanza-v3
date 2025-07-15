@@ -6,6 +6,13 @@
     backdrop-filter: blur(7px);
     transition: all ease .5s;
     z-index: 1000;
+   
+}
+@media screen and (max-width: 768px) {
+    .navBar {
+       backdrop-filter: none;
+    }
+    
 }
 .navBar ul {
     display: flex;

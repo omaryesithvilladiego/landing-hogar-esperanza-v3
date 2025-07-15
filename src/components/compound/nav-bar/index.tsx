@@ -42,9 +42,30 @@ NavBar.ButtonOpenMenu = function ButtomOpenMenu() {
         style={{ cursor: "pointer" }}
       />
       <Sidebar isOpen={isOpen} onToggle={toggleSidebar}>
+        <Sidebar.Toggle />
         <Sidebar.Content>
-          <p>Menú de navegación</p>
-          <h2>hola</h2>
+          <NavBar
+            options={{
+              ButtonHome: "Inicio",
+              ButtonAbout: "Acerca de",
+              ButtonServices: "Servicios",
+              ButtonContact: "Contacto",
+            }}
+          >
+            <section
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "2rem",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <NavBar.ButtonAbout />
+              <NavBar.ButtonServices />
+              <NavBar.ButtonContact />
+            </section>
+          </NavBar>
         </Sidebar.Content>
       </Sidebar>
     </li>

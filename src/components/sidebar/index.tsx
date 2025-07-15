@@ -58,10 +58,7 @@ interface ToggleButtonProps {
   className?: string;
 }
 
-Sidebar.Toggle = function SidebarToggle({
-  children,
-  className,
-}: ToggleButtonProps) {
+Sidebar.Toggle = function SidebarToggle({ children }: ToggleButtonProps) {
   const context = useContext(SidebarContext);
 
   if (!context) {
@@ -69,10 +66,8 @@ Sidebar.Toggle = function SidebarToggle({
   }
 
   return (
-    <button onClick={context.toggle} className={className}>
-      {children || (
-        <span className={styles.toggleIcon}>{context.isOpen ? "×" : "☰"}</span>
-      )}
+    <button onClick={context.toggle} className={styles.buttonToggle}>
+      {children || <span className={styles.toggleIcon}>{"×"}</span>}
     </button>
   );
 };
