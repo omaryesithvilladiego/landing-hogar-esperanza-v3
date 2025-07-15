@@ -13,7 +13,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { motion } from "framer-motion";
 import { borel } from "@/app/fonts";
 import ReactModal from "react-modal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Plans = () => {
   const mQueryXs = useMediaQuery("(max-width: 576px)");
@@ -21,6 +21,10 @@ const Plans = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState<plan | null>(null);
   const [initialSlide, setInitialSlide] = useState<number>(programs.length);
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState<{
+    [key: string]: boolean;
+  }>({});
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const containerVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -38,12 +42,47 @@ const Plans = () => {
     setInitialSlide(index);
     setSelectedProgram(program);
     setIsOpen(true);
+    setIsScrolledToBottom((prev) => ({ ...prev, [program.id]: false }));
   };
 
   const handleCloseModal = () => {
     setIsOpen(false);
     setSelectedProgram(null);
   };
+
+  const handleScroll = (programId: string) => {
+    const currentRef = contentRefs.current[programId];
+    if (currentRef) {
+      const isAtBottom =
+        currentRef.scrollTop + currentRef.clientHeight >=
+        currentRef.scrollHeight;
+      setIsScrolledToBottom((prev) => ({ ...prev, [programId]: isAtBottom }));
+    }
+  };
+
+  const scrollContent = (programId: string) => {
+    const currentRef = contentRefs.current[programId];
+    if (currentRef) {
+      currentRef.scrollTo({
+        top: isScrolledToBottom[programId] ? 0 : currentRef.scrollHeight,
+        behavior: "smooth",
+      });
+      setIsScrolledToBottom((prev) => ({
+        ...prev,
+        [programId]: !prev[programId],
+      }));
+    }
+  };
+
+  useEffect(() => {
+    Object.entries(contentRefs.current).forEach(([programId, ref]) => {
+      if (ref) {
+        const handleScrollEvent = () => handleScroll(programId);
+        ref.addEventListener("scroll", handleScrollEvent);
+        return () => ref.removeEventListener("scroll", handleScrollEvent);
+      }
+    });
+  }, [isOpen]);
 
   return (
     <section id="services" className={styles.containerWraper}>
@@ -67,7 +106,30 @@ const Plans = () => {
       >
         {selectedProgram && (
           <div className={styles.modalContent}>
-            <button onClick={handleCloseModal} className={styles.closeButton}>
+            <button
+              onClick={handleCloseModal}
+              className={styles.closeButton}
+              style={{
+                fontSize: "2rem",
+                fontWeight: "bold",
+                color: "#333",
+                background: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "40px",
+                height: "40px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                position: "absolute",
+                right: "10px",
+                top: "10px",
+                zIndex: 1001,
+                boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease",
+              }}
+            >
               ×
             </button>
             <Swiper
@@ -94,13 +156,43 @@ const Plans = () => {
                     />
                   </div>
                   <div className={styles.wraperContainerText}>
-                    <div className={styles.contentSlide}>
+                    <div
+                      ref={(el: HTMLDivElement | null): void => {
+                        contentRefs.current[program.id] = el;
+                      }}
+                      className={styles.contentSlide}
+                    >
                       <div className={styles.contentText}>
-                        <h2>{program.nombre}</h2>
+                        <h2 className={borel.className}>{program.nombre}</h2>
+                        <div className={styles.scrollButtonContainer}>
+                          <button
+                            onClick={() => scrollContent(String(program.id))}
+                            className={styles.scrollButton}
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              style={{
+                                transform: isScrolledToBottom[program.id]
+                                  ? "rotate(180deg)"
+                                  : "none",
+                                transition: "transform 0.3s ease",
+                              }}
+                            >
+                              <path d="M12 5v14M5 12l7 7 7-7" />
+                            </svg>
+                          </button>
+                        </div>
 
                         <ol>
                           {program.incluye.map((item, index) => {
-                            return <li key={index}> {item} </li>;
+                            return <li key={index}> - {item} </li>;
                           })}
                         </ol>
                       </div>
@@ -126,7 +218,7 @@ const Plans = () => {
         }}
         pagination={{ clickable: true }}
         spaceBetween={50}
-        slidesPerView={mQueryXs ? 1 : mQuerySm ? 2 : 3} //slider logic responsive
+        slidesPerView={mQueryXs ? 1 : mQuerySm ? 2 : 3}
       >
         {programs.map((program: plan, index) => (
           <SwiperSlide
@@ -142,7 +234,7 @@ const Plans = () => {
               variants={containerVariants}
             >
               <div className={styles.textSection}>
-                <h2>{program.nombre}</h2>
+                <h2 className={borel.className}>{program.nombre}</h2>
               </div>
 
               <div className={styles.containerImage}>

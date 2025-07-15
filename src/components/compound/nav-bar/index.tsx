@@ -6,6 +6,8 @@ import Image from "next/image";
 import { roboto } from "@/app/fonts";
 import { CiMenuFries } from "react-icons/ci";
 import Link from "next/link";
+import { Sidebar } from "@/components/sidebar";
+import { useState } from "react";
 
 const NavBar = ({ children, options }: INavBarProps) => {
   return (
@@ -20,17 +22,31 @@ const NavBar = ({ children, options }: INavBarProps) => {
 NavBar.ButtonHome = function ButtonHome() {
   const context = useNavBarConext();
   const { ButtonHome } = context.options;
+  if (!ButtonHome) return null;
   return (
     <li>
-      <Link href={""}>{ButtonHome}</Link>
+      <a>{ButtonHome}</a>
     </li>
   );
 };
 
 NavBar.ButtonOpenMenu = function ButtomOpenMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => setIsOpen(!isOpen);
   return (
     <li>
-      <CiMenuFries fontSize={"3rem"} style={{ cursor: "pointer" }} />
+      <CiMenuFries
+        onClick={toggleSidebar}
+        fontSize={"3rem"}
+        style={{ cursor: "pointer" }}
+      />
+      <Sidebar isOpen={isOpen} onToggle={toggleSidebar}>
+        <Sidebar.Content>
+          <p>Menú de navegación</p>
+          <h2>hola</h2>
+        </Sidebar.Content>
+      </Sidebar>
     </li>
   );
 };

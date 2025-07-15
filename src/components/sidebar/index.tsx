@@ -1,6 +1,5 @@
 import { createContext, useContext, ReactNode } from "react";
-import styles from "./sidebar.module.css";
-
+import styles from "./styles/style.module.css";
 interface SidebarContextType {
   isOpen: boolean;
   toggle: () => void;
