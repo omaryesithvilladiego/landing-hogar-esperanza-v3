@@ -1,9 +1,15 @@
-
 .swiperSlide {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
+    width: 20rem;
+}
+
+@media screen and (max-width: 768px) {
+    .swiperSlide {
+        width: 100%; /* Make it full width on mobile */
+    }
 }
 
 .planContainer {
@@ -18,6 +24,12 @@
     border-radius: 1rem;
     position: relative;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .planContainer {
+        width: 95%; /* Increased width on mobile */
+    }
 }
 
 .containerImage {
@@ -39,7 +51,6 @@
     align-items: center;
     flex-direction: column;
     padding: 2rem;
-
 }
 
 .textSection h2 {
@@ -47,7 +58,6 @@
     text-align: center;
     color: white;
 }
-
 
 .sectionPlanesTittle {
     display: flex;
@@ -65,7 +75,6 @@
 .slide {
    display: flex;
    height: 100%;
-   width: 100%;
    overflow: hidden;
    flex-direction: row;
    justify-content: space-between;
@@ -73,27 +82,26 @@
 
 .contentSlide {
     background: linear-gradient(-90deg, rgb(5, 162, 107) 95%, rgba(0, 212, 255, 0) 100%);
- width: 95%;
- height: 80vh;
- border-radius:  12px 12px 12px 12px;
- position: relative;
- overflow-y: scroll;
- scrollbar-width: none; 
- -ms-overflow-style: none; 
-   
+    height: 80vh;
+    border-radius: 12px 12px 12px 12px;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-@media screen and (max-width: 768px)   {
+
+@media screen and (max-width: 768px) {
     .contentSlide {
         background: linear-gradient(-90deg, rgba(5, 162, 107, 0.437) 95%, rgba(0, 212, 255, 0) 100%);
         margin: 0 auto;
-        width: 80%;
+        width: 95%; /* Increased from 80% to 95% for mobile */
         position: relative;
         overflow-y: scroll;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
     .contentSlide::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
+        display: none;
     }
 }
 
@@ -106,88 +114,65 @@
     margin: 0 auto;
     position: relative;
     padding-top: 4rem;
- 
-   
 }
 
 .scrollButton {
-    position: fixed;
+    position: sticky;
     bottom: 40;
     width: 2rem;
     height: 2rem;
     background-color: rgba(240, 248, 255, 0.653);
     border: none;
     border-radius: 100px;
-   margin: 0;
-   padding: 0;
+    margin: 0;
+    padding: 0;
     cursor: pointer;
-
 }
-
-
 
 .contentText h2 {
     font-size: 4rem;
     color: var(--white);
-
 }
 
-@media (max-width: 990px)  {
-
+@media (max-width: 990px) {
     .contentText h2 {
         font-size: 2rem;
-        
     }
 
     .contentText ol {
         padding-bottom: 4rem;
     }
-    
 }
 
 .contentText ol li {
     color: var(--white);
-  
 }
-
 
 .containerImageModal {
-  
-   width: 50%;
+    width: 50%;
     position: relative;
-    border-radius:  12px 12px 12px 12px;
-
+    border-radius: 12px 12px 12px 12px;
 }
-
-
 
 .wraperContainerText {
     width: 70%;
     position: relative;
-    border-radius:  12px 12px 12px 12px;
-
-   
+    border-radius: 12px 12px 12px 12px;
 }
 
-@media screen and (max-width: 768px)  {
+@media screen and (max-width: 768px) {
     .containerImageModal {
-        width: 90%;
+        width: 95%; /* Increased from 90% to 95% */
         height: 100%;
         position: absolute;
-     
         z-index: 0;
-        border-radius:  12px 12px 12px 12px;
+        border-radius: 12px 12px 12px 12px;
         overflow: hidden;
-
     }
     
     .wraperContainerText {
-        width: 100%;
+        width: 98%;
         position: relative;
-        border-radius:  12px 12px 12px 12px;
-
+        border-radius: 12px 12px 12px 12px;
     }
 }
-
-
-

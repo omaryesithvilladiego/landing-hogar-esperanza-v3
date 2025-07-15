@@ -150,8 +150,8 @@ const Plans = () => {
                       alt={program.nombre}
                       style={{
                         objectFit: "cover",
-                        left: 40,
-                        borderRadius: "25px 0px 0px 25px",
+
+                        overflow: "hidden",
                       }}
                     />
                   </div>
