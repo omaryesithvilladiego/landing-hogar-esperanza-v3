@@ -12,6 +12,7 @@ body {
     background-position: center;
     height: 500vh;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .swiper-button-next,
