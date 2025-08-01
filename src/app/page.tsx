@@ -11,6 +11,7 @@ import AboutUs from "@/components/landing-components/about-us-section";
 import Footer from "@/components/landing-components/footer-section";
 import { ContactForm } from "@/components/landing-components/contac-section";
 import { useMediaQuery } from "usehooks-ts";
+import SocialMedia from "@/components/landing-components/social-media-section/styles";
 
 export default function Home() {
   const [hasMounted, setHasMounted] = useState(false);
@@ -44,6 +45,7 @@ export default function Home() {
       <AboutUs />
       <ContactForm />
       <Footer />
+      <SocialMedia />
     </div>
   );
 }
