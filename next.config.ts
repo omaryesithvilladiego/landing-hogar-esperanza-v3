@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Enable Next.js Analytics
+  analytics: {
+    enabled: true,
+  },
 };
 
 export default nextConfig;

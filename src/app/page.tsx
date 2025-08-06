@@ -41,6 +41,11 @@ export default function Home() {
             className={styles.pulsingLogo}
           />
         </div>
+        <p className={styles.loadingText}>
+          <span className={styles.dot}>.</span>
+          <span className={styles.dot}>.</span>
+          <span className={styles.dot}>.</span>
+        </p>
       </div>
     );
   }
