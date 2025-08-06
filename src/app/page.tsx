@@ -35,6 +35,7 @@ export default function Home() {
           <Image
             src="/logo.webp"
             alt="Logo"
+            loading="eager"
             width={50}
             height={50}
             className={styles.pulsingLogo}
