@@ -1,8 +1,12 @@
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 const LogoTiktok = () => {
+  const sx = useMediaQuery("(min-width: 1024px)");
   return (
     <svg
-      fill={"#fff"}
+      fill={!sx ? "#000" : "#fff"}
       viewBox="0 0 512 512"
+      fontSize={"50px"}
       id="icons"
       xmlns="http://www.w3.org/2000/svg"
     >

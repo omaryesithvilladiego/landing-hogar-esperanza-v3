@@ -12,14 +12,37 @@ import Footer from "@/components/landing-components/footer-section";
 import { ContactForm } from "@/components/landing-components/contac-section";
 import { useMediaQuery } from "usehooks-ts";
 import SocialMedia from "@/components/landing-components/social-media-section/styles";
+import Image from "next/image";
 
 export default function Home() {
   const [hasMounted, setHasMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const isDesktop = useMediaQuery("(min-width: 630px)");
 
   useEffect(() => {
     setHasMounted(true);
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.logoLoader}>
+          <Image
+            src="/logo.webp"
+            alt="Logo"
+            width={50}
+            height={50}
+            className={styles.pulsingLogo}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.page}>
